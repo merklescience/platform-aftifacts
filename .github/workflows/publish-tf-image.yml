@@ -9,7 +9,7 @@ on:
 
 env:
     REGISTRY: ghcr.io
-    IMAGE_NAME: terraform-gcloud-platform
+    IMAGE_NAME: ${{ github.repository }}-terraform
 
 jobs:
     build-and-push-image:
