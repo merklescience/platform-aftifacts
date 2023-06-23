@@ -1,4 +1,4 @@
-name: Create and Publish TF Docker image
+name: Create and Publish Gcloud Infra Docker Image
 
 on:
     push:
@@ -9,7 +9,7 @@ on:
 
 env:
     REGISTRY: ghcr.io
-    IMAGE_NAME: ${{ github.repository }}-terraform
+    IMAGE_NAME: ${{ github.repository_owner }}/gcloud-infra-aio
 
 jobs:
     build-and-push-image:
@@ -36,7 +36,7 @@ jobs:
                   images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
                   tags: |
                       type=sha
-                      type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}
+                      type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
 
             - name: Build and push Docker image
               uses: docker/build-push-action@v4
