@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   gettext-base \
   unzip \
   jq \
+  git \
   python3 \
   apt-transport-https \
   ca-certificates \
